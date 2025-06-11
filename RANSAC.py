@@ -63,9 +63,10 @@ def RANSAC(A, b, nEquations, iterations, threshold):
         inlierListB = []
             
         for j in range(len(residues)):
+            k = int(j*nEquations)
             if residues[j] < threshold:
-                inlierListA.append(A[j : j + nEquations,:])
-                inlierListB.append(b[j : j + nEquations])
+                inlierListA.append(A[k : k + nEquations,:])
+                inlierListB.append(b[k : k + nEquations])
         
         iterationList.append((len(inlierListA), inlierListA, inlierListB))
         
