@@ -56,7 +56,7 @@ def RANSAC(A, b, nEquations, iterations, threshold):
         error = A.dot(randomX) - b.reshape(-1,1) # error on right side
         residues = []
         
-        for j in range(int(error.shape[0]/nEquations)):
+        for j in range(0, int(error.shape[0]), nEquations):
             residues.append(np.linalg.norm(error[j : j + nEquations]))
         
         inlierListA = []
